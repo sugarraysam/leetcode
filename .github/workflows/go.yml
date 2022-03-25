@@ -1,0 +1,23 @@
+name: go
+
+# Runs when we push changes to any go file under the go/ directory.
+on:
+  push:
+    paths:
+      - "go/**/*.go"
+
+jobs:
+  build:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: "^1.18.0"
+      - name: Runs golangci-lint and goimports
+        run: |
+          make go-check
+      - name: Runs go unit tests
+        run: |
+          make go-test
