@@ -17,7 +17,7 @@ jobs:
           go-version: "^1.18.0"
       - name: Runs golangci-lint and goimports
         run: |
-          make go-check
+          cd go && make check
       - name: Runs go unit tests
         run: |
-          make go-test
+          cd go && make test

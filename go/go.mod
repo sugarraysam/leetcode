@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/golangci/golangci-lint v1.45.2
+	github.com/stretchr/testify v1.7.1
 	golang.org/x/tools v0.1.10
 )
 
@@ -129,7 +130,6 @@ require (
 	github.com/spf13/viper v1.10.1 // indirect
 	github.com/ssgreg/nlreturn/v2 v2.2.1 // indirect
 	github.com/stretchr/objx v0.1.1 // indirect
-	github.com/stretchr/testify v1.7.1 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
 	github.com/sylvia7788/contextcheck v1.0.4 // indirect
 	github.com/tdakkota/asciicheck v0.1.1 // indirect
