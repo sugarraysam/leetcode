@@ -1,0 +1,44 @@
+---
+repos:
+  ###
+  ### All files
+  ###
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: pretty-format-json
+        args:
+          - --autofix
+      - id: trailing-whitespace
+
+  ###
+  ### Golang
+  ###
+  - repo: local
+    hooks:
+      - id: go-check
+        name: runs golangci-lint and go mod tidy
+        language: system
+        entry: make -C go check
+        pass_filenames: false
+        always_run: true
+      - id: go-test
+        name: runs go unit tests
+        language: system
+        entry: make -C go test
+        pass_filenames: false
+        always_run: true
+
+  ###
+  ### (TODO) Rust
+  ###
+  #- repo: local
+  #hooks:
+  #- id: go-check
+  #name: runs golangci-lint and go mod tidy
+  #language: system
+  #entry: make -f go/Makefile check
+  #pass_filenames: false
+  #always_run: true
+  #require_serial: false
