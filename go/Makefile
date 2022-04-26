@@ -16,7 +16,7 @@ init: ## Runs go mod tidy && go mod install.
 	@cat tools.go | grep _ | cut -d " " -f 2 | tr -d \" | xargs -I % go install %@latest
 
 check: init ## Run goimports and golangci-lint.
-	#@$(GOBIN)/goimports -w -l $(shell find . -type f -name "*.go")
+	@go mod tidy && go mod verify
 	@$(GOBIN)/golangci-lint run \
 		--timeout=10m \
 		-E unused,gofmt,goimports,gosimple,staticcheck \
